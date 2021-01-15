@@ -15,11 +15,11 @@
 			</div>
 		</div>
 		<ng-container *ngFor="let item of phones.controls; index as i">
-      <app-phone [phoneForm]="item" [index]="i" (clickDelete)="deleteItem($event)"></app-phone>
+			<!-- <app-phone [phoneForm]="item" [index]="i" (clickDelete)="deleteItem($event)"></app-phone> -->
 		</ng-container>
 
 	</div>
-  <button type="button" class="btn btn-success" (click)="submit()">Submit</button>
+	<button type="button" class="btn btn-success" (click)="submit()">Submit</button>
 	<pre>
 Valid: {{form.valid}}
 {{form.value | json}}
