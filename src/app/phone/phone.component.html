@@ -1,5 +1,17 @@
-<div class="row mb-2">
-	<div class="col-2">
-
+<div class="row mb-2" [formGroup]="phoneForm">
+	<div class="col-3">
+		<select class="form-select" formControlName="phoneType">
+          <option value="home">Home</option>
+          <option value="mobile">Mobile</option>
+        </select>
 	</div>
-</div>
+	<div class="col-2">
+		<input type="tel" class="form-control" [ngClass]="{'is-invalid' : invalid(areaCode)}" formControlName="areaCode" placeholder="Code">
+  </div>
+		<div class="col-4">
+			<input type="tel" class="form-control" [ngClass]="{'is-invalid' : invalid(phoneNumber)}" formControlName="phoneNumber" placeholder="Phone Number">
+  </div>
+			<div class="col-3">
+				<button type="button" class="btn btn-danger" (click)="deleteItem()">Delete</button>
+			</div>
+		</div>

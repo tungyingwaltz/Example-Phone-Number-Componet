@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { AbstractControl, FormGroup } from "@angular/forms";
 
 @Component({
   selector: "app-phone",
@@ -22,7 +22,11 @@ export class PhoneComponent implements OnInit {
 
   ngOnInit() {}
 
-  deleteItem(i: number) {
-    this.clickDelete.emit(i);
+  deleteItem() {
+    this.clickDelete.emit(this.index);
+  }
+
+  invalid(contorl: AbstractControl){
+    return contorl.invalid && contorl.touched;
   }
 }
