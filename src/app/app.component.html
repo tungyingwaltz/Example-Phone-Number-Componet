@@ -1,0 +1,27 @@
+<div class="container-fluid">
+	<h1>Phone Number Componet</h1>
+
+	<div [formGroup]="form">
+		<div class="mb-3 row">
+			<label for="staticEmail" class="col-sm-3 col-form-label">Phone Type</label>
+			<div class="col-sm-3">
+				<select class="form-select" formControlName="phoneType">
+          <option value="home">Home</option>
+          <option value="mobile">Mobile</option>
+        </select>
+			</div>
+			<div class="col-sm-6">
+				<button type="button" class="btn btn-primary" (click)="addPhone()">Add</button>
+			</div>
+		</div>
+		<ng-container *ngFor="let item of phones.controls; index as i">
+      <app-phone [phoneForm]="item" [index]="i" (clickDelete)="deleteItem($event)"></app-phone>
+		</ng-container>
+
+	</div>
+  <button type="button" class="btn btn-success" (click)="submit()">Submit</button>
+	<pre>
+Valid: {{form.valid}}
+{{form.value | json}}
+</pre>
+</div>
